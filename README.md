@@ -85,7 +85,7 @@ eval_final_10_epochs_only: True
 ## References
 This code repository is heavily based on the [ASTMT](https://github.com/facebookresearch/astmt) and [Multi-Task-Learning-PyTorch](https://github.com/SimonVandenhende/Multi-Task-Learning-PyTorch) repository.
  
-## Citation
+<!-- ## Citation
 If you find this repo useful for your research, please consider citing the following works:
 
 ```
@@ -119,5 +119,4 @@ If you find this repo useful for your research, please consider citing the follo
   journal={IEEE transactions on pattern analysis and machine intelligence},
   year={2015},
 }
-```
-# M3ViT
+``` -->
