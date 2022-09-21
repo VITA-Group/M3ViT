@@ -1,0 +1,75 @@
+# Setup
+setup: single_task
+
+# Database
+train_db_name: NYUD
+val_db_name: NYUD 
+trBatch: 8
+valBatch: 8
+nworkers: 4
+
+# Optimizer and scheduler
+epochs: 100
+optimizer: sgd
+optimizer_kwargs:
+   lr: 0.001
+   momentum: 0.9
+   weight_decay: 0.0001
+scheduler: poly
+
+# Model
+model: baseline
+backbone: VisionTransformer_moe
+backbone_kwargs:
+   dilated: False
+   model_name: 'vit_small_patch16_224'
+   img_size: [480,640]
+   patch_size: 16
+   in_chans: 3
+   embed_dim: 384
+   depth: 12
+   num_heads: 12
+   num_classes: 40
+
+   drop_rate: 0.
+   pos_embed_interp: True
+   align_corners: False
+
+   mlp_ratio: 4.
+   qkv_bias: True,
+   attn_drop_rate: 0.
+   drop_path_rate: 0.
+  #  norm_cfg: None
+   
+   random_init: True ##set false if you wanna load from vit_base_pretrain
+   distilled: False
+   moe_mlp_ratio: 2
+   # moe_experts: 4
+   moe_top_k: 2
+   gate_dim: -1
+   gate_return_decoupled_activation: False
+   
+head: VisionTransformerUpHead
+head_kwargs:
+   in_channels: 1024
+   channels: 512
+   embed_dim: 384
+
+   img_size: [480,640]
+   align_corners: False
+   num_conv: 4
+   upsampling_method: 'bilinear'
+   num_upsampe_layer: 4
+   num_classes: 40
+   in_index: 11
+
+   patch_size: 16
+   conv3x3_conv1x1: True
+   
+   
+
+# Tasks
+task_dictionary:
+   include_semseg: True
+
+
