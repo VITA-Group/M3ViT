@@ -130,6 +130,15 @@ def get_backbone(p, args=None):
         from models.resnet import resnet50
         backbone = resnet50(p['backbone_kwargs']['pretrained'])
         backbone_channels = 2048
+    
+    elif p['backbone'] == 'mobilenetv3':
+        from models.mobilenetv3 import mobilenetv3_large, mobilenetv3_small
+        backbone = mobilenetv3_large()
+        state_dict =torch.load(args.pretrained)
+        msg = backbone.load_state_dict(state_dict, strict=False)
+        print(msg)
+        print("=> loaded pre-trained model '{}'".format(args.pretrained))
+        backbone_channels = 960
 
     elif p['backbone'] == 'hrnet_w18':
         from models.seg_hrnet import hrnet_w18

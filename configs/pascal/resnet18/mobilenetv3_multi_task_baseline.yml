@@ -18,10 +18,11 @@ scheduler: poly
 
 # Model
 model: baseline
-backbone: resnet18
+backbone: mobilenetv3
 backbone_kwargs:
    pretrained: True
-   dilated: True
+   dilated: False
+   mode: small
 head: deeplab
 
 # Tasks
@@ -42,3 +43,5 @@ loss_kwargs:
        sal: 5.0
        edge: 50.0
        normals: 10.0
+
+eval_final_10_epochs_only: True
