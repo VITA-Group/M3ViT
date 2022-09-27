@@ -27,7 +27,7 @@ model_kwargs:
    tam: True
    tam_level0: True
    tam_level1: True
-   tam_level2: True
+   tam_level2: False
 backbone: VisionTransformer
 backbone_kwargs:
    dilated: False

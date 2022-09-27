@@ -70,9 +70,9 @@ python main.py --config_env configs/env.yml --config_exp configs/$DATASET/$MODEL
 
 To run models based on vit and vit-moe
 ```shell
-CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 --master_port 3350 train_fastmoe.py --config_env configs/env.yml --config_exp configs/$DATASET/vit/$MODEL.yml --save_dir /output_dir --lr $lr
+CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 --master_port 3350 train_fastmoe.py --config_env configs/env.yml --config_exp configs/$DATASET/vit/$MODEL.yml --save_dir /output_dir 
 
-CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 --master_port 3350 train_fastmoe.py --config_env configs/env.yml --config_exp configs/$DATASET/vit_moe/$MODEL.yml  --pretrained /home/pretrain_dir  --moe_gate_type "noisy_vmoe"  --moe_experts 16 --moe_top_k 4 --pos_emb_from_pretrained True --backbone_random_init False --vmoe_noisy_std 0 --gate_task_specific_dim -1 --save_dir /home/output_dir --task_one_hot False --multi_gate True --moe_mlp_ratio 1 --lr $lr
+CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 --master_port 3350 train_fastmoe.py --config_env configs/env.yml --config_exp configs/$DATASET/vit_moe/$MODEL.yml  --pretrained /home/pretrain_dir  --moe_gate_type "noisy_vmoe"  --moe_experts 16 --moe_top_k 4 --pos_emb_from_pretrained True --backbone_random_init False --vmoe_noisy_std 0 --gate_task_specific_dim -1 --save_dir /home/output_dir --task_one_hot False --multi_gate True --moe_mlp_ratio 1
 
 ```
 ### Evaluation

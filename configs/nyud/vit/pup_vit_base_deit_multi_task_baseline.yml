@@ -12,7 +12,7 @@ nworkers: 4
 epochs: 100
 optimizer: sgd
 optimizer_kwargs:
-   lr: 0.001
+   lr: 0.002
    momentum: 0.9
    weight_decay: 0.0001
 scheduler: poly
@@ -20,6 +20,8 @@ scheduler: poly
 # Model
 model: baseline
 backbone: VisionTransformer
+model_kwargs:
+   tam: True
 backbone_kwargs:
    dilated: False
    model_name: 'deit_base_distilled_path16_384'

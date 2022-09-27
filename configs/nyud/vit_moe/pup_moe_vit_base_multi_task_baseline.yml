@@ -12,13 +12,15 @@ nworkers: 4
 epochs: 100
 optimizer: sgd
 optimizer_kwargs:
-   lr: 0.001
+   lr: 0.002
    momentum: 0.9
    weight_decay: 0.0001
 scheduler: poly
 
 # Model
 model: baseline
+model_kwargs:
+   tam: True
 backbone: VisionTransformer_moe
 backbone_kwargs:
    dilated: False
@@ -83,5 +85,3 @@ loss_kwargs:
 
 # Eval only final 10 epochs for speed-up
 eval_final_10_epochs_only: True
-
-

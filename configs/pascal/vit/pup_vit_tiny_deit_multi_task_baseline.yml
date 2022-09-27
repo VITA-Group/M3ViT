@@ -2,8 +2,8 @@
 setup: multi_task
 
 # Database
-train_db_name: NYUD
-val_db_name: NYUD 
+train_db_name: PASCALContext
+val_db_name: PASCALContext
 trBatch: 8
 valBatch: 8
 nworkers: 4
@@ -12,7 +12,7 @@ nworkers: 4
 epochs: 100
 optimizer: sgd
 optimizer_kwargs:
-   lr: 0.001
+   lr: 0.002
    momentum: 0.9
    weight_decay: 0.0001
 scheduler: poly
@@ -21,16 +21,16 @@ scheduler: poly
 model: baseline
 model_kwargs:
    tam: True
-backbone: VisionTransformer_moe
+backbone: VisionTransformer
 backbone_kwargs:
    dilated: False
-   model_name: 'deit_base_distilled_path16_384'
-   img_size: [480,640]
+   model_name: 'vit_tiny_patch16_224'
+   img_size: [512,512]
    patch_size: 16
    in_chans: 3
-   embed_dim: 768
+   embed_dim: 192
    depth: 12
-   num_heads: 12
+   num_heads: 3
    num_classes: 40
 
    drop_rate: 0.
@@ -43,21 +43,15 @@ backbone_kwargs:
    drop_path_rate: 0.
   #  norm_cfg: None
    
-   random_init: True ##set false if you wanna load from vit_base_pretrain
-   distilled: False
-   moe_mlp_ratio: 2
-   # moe_experts: 4
-   moe_top_k: 2
-   gate_dim: -1
-   gate_return_decoupled_activation: False
+   random_init: False
    
 head: VisionTransformerUpHead
 head_kwargs:
    in_channels: 1024
    channels: 512
-   embed_dim: 768
+   embed_dim: 192
 
-   img_size: [480,640]
+   img_size: [512,512]
    align_corners: False
    num_conv: 4
    upsampling_method: 'bilinear'
@@ -73,14 +67,21 @@ head_kwargs:
 # Tasks
 task_dictionary:
    include_semseg: True
-   include_depth: True
+   include_human_parts: True
+   include_sal: True
+   include_edge: True
+   include_normals: True
+   edge_w: 0.95
 
 # Loss kwargs
 loss_kwargs:
    loss_scheme: baseline
    loss_weights:
        semseg: 1.0
-       depth: 1.0
+       human_parts: 2.0
+       sal: 5.0
+       edge: 50.0
+       normals: 10.0
 
 
 # Eval only final 10 epochs for speed-up

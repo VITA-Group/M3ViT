@@ -12,7 +12,7 @@ nworkers: 4
 epochs: 100
 optimizer: sgd
 optimizer_kwargs:
-   lr: 0.001
+   lr: 0.002
    momentum: 0.9
    weight_decay: 0.0001
 scheduler: poly
