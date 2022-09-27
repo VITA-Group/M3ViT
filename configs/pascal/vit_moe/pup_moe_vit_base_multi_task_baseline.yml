@@ -12,7 +12,7 @@ nworkers: 4
 epochs: 100
 optimizer: sgd
 optimizer_kwargs:
-   lr: 0.001
+   lr: 0.002
    momentum: 0.9
    weight_decay: 0.0001
 scheduler: poly
@@ -22,8 +22,8 @@ model: baseline
 model_kwargs:
    tam: True
    tam_level0: True
-   tam_level1: True
-   tam_level2: True
+   tam_level1: False
+   tam_level2: False
 backbone: VisionTransformer_moe
 backbone_kwargs:
    dilated: False
