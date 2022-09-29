@@ -1,4 +1,4 @@
-# [NeurIPS 2022] “M3ViT: Mixture-of-Experts Vision Transformer for Efficient Multi-task Learning with Model-Accelerator Co-design”, Hanxue Liang<sup>*</sup>, Zhiwen Fan<sup>*</sup>, Rishov Sarkar, Ziyu Jiang, Tianlong Chen, Kai Zou, Yu Cheng, Cong Hao, Zhangyang Wang 
+# [NeurIPS 2022] “M3ViT: Mixture-of-Experts Vision Transformer for Efficient Multi-task Learning with Model-Accelerator Co-design”, Hanxue Liang*, Zhiwen Fan*, Rishov Sarkar, Ziyu Jiang, Tianlong Chen, Kai Zou, Yu Cheng, Cong Hao, Zhangyang Wang 
 
 
 <p align="center"> 
