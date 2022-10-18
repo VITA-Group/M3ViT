@@ -48,7 +48,7 @@ backbone_kwargs:
    moe_mlp_ratio: 2
    # moe_experts: 4
    moe_top_k: 2
-   gate_dim: -1
+   gate_dim: 386
    gate_return_decoupled_activation: False
    
    
