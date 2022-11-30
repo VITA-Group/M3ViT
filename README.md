@@ -1,4 +1,4 @@
-# [NeurIPS 2022] “M³ViT: Mixture-of-Experts Vision Transformer for Efficient Multi-task Learning with Model-Accelerator Co-design”
+# [NeurIPS 2022] “M³ViT: Mixture-of-Experts Vision Transformer for Efficient Multi-task Learning with Model-Accelerator Co-design” [[Paper]](https://openreview.net/forum?id=cFOhdl1cyU-)
 
 <p align="center"> 
     <img src="./resources/arch.PNG">
